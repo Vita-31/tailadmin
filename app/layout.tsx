@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Sidebar from "../features/sidebar/Sidebar";
-import Header from "../features/header/Header";
+import Sidebar from "@/src/features/sidebar/Sidebar";
+import Header from "@/src/features/header/Header";
+
 import "./globals.css";
 
 const satoshi = localFont({

@@ -6,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -15,7 +16,11 @@ const config: Config = {
       colors: {
         primary: "#3C50E0",
         secondary: "#10B981",
-        dark: "#1C2434",
+        dark: {
+          DEFAULT: "#1C2434",
+          light: "#DEE4EE",
+          darken: "#8A99AF",
+        },
       },
     },
   },
