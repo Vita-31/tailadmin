@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { ListBlock } from "./listBlock/ListBlock";
-import { list } from "./listBlock/lib/constants";
+import { list } from "../../lib/constants";
 
 export const List: FC = () => {
   return (
