@@ -22,11 +22,12 @@ export const ListBlockItem: FC<ListBlockItemProps> = ({
   link,
   free,
 }) => {
+  const openDropdown = () => {};
   return (
     <li className="flex flex-col ">
       <button
         type="button"
-        className="flex items-center gap-[10px] py-2 pl-[15xp] pr-3 text-dark-light font-medium text-base cursor-pointer duration-300 open"
+        className="flex items-center gap-[10px] py-2 pl-[15xp] pr-3 text-dark-light font-medium text-base cursor-pointer duration-300"
       >
         <span className="w-[18px] h-[18px] shrink-0">{icon()}</span>
         {title}
