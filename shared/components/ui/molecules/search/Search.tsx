@@ -1,4 +1,4 @@
-import { SearchIcon } from "@/src/shared/images/SearchIcon";
+import { SearchIcon } from "@/shared/icons/SearchIcon";
 import { FC } from "react";
 
 export const Search: FC = () => {

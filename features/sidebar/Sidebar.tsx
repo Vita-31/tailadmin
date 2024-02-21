@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "./ui/logo/Logo";
-import { List } from "./ui/list/List";
+import Logo from "./ui/Logo";
+import { List } from "./ui/List";
 
 const Sidebar = () => {
   return (

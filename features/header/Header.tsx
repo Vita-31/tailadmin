@@ -1,4 +1,4 @@
-import { Search } from "@/src/shared/components/ui/molecules/search/Search";
+import { Search } from "@/shared/components/ui/molecules/search/Search";
 import React from "react";
 
 const Header = () => {

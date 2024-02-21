@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Sidebar from "@/src/features/sidebar/Sidebar";
-import Header from "@/src/features/header/Header";
+import Sidebar from "@/features/sidebar/Sidebar";
+import Header from "@/features/header/Header";
 
 import "./globals.css";
 
@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full min-h-full">
+    <html lang="en" className="min-h-full">
       <body className={`${satoshi.variable} font-sans min-h-full h-full flex`}>
         <Sidebar />
         <div className="flex flex-col w-full">

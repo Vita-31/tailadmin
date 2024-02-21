@@ -1,6 +1,8 @@
+"use client";
+
 import { FC } from "react";
-import { ListBlock } from "./listBlock/ListBlock";
-import { list } from "../../lib/constants";
+import { ListBlock } from "./ListBlock";
+import { list } from "../lib/constants";
 
 export const List: FC = () => {
   return (

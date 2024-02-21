@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Grid,
   Calendar,
@@ -12,7 +14,7 @@ import {
   Chart,
   Layout,
   Enter,
-} from "@/src/shared/images/index";
+} from "@/icons";
 
 export const list = [
   {
