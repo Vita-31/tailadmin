@@ -1,8 +1,9 @@
 "use client";
 
-import { ChevronUp } from "@/shared/icons/ChevronUp";
 import { FC, useState } from "react";
 import { AccordionItem } from "@/ui";
+import { ListBlockItemHeader } from "./ListBlockItemHeader";
+import { ListBlockItemBody } from "./ListBlockItemBody";
 
 interface ListBlockItemProps {
   icon: Function;
@@ -34,28 +35,15 @@ export const ListBlockItem: FC<ListBlockItemProps> = ({
         handleToggle={handleToggle}
         active={isAccordionOpen}
         header={
-          <div className="flex items-center gap-[10px] py-2 pl-4 pr-3 text-dark-light font-medium text-base cursor-pointer duration-300">
-            <span className="w-[18px] h-[18px] shrink-0">{icon()}</span>
-            {title}
-            {list && (
-              <span className="w-[18px] h-[18px] shrink-0 ml-auto rotate-180">
-                <ChevronUp />
-              </span>
-            )}
-            {!free && (
-              <span className="flex items-center text-sm text-white font-medium px-2 bg-primary rounded-[4px]  ml-auto">
-                PRO
-              </span>
-            )}
-          </div>
+          <ListBlockItemHeader
+            icon={icon}
+            title={title}
+            list={list}
+            free={free}
+            active={isAccordionOpen}
+          />
         }
-        body={
-          <>
-            {list?.map((item, index) => (
-              <div key={index}>{item.title}</div>
-            ))}
-          </>
-        }
+        body={<ListBlockItemBody list={list} />}
       />
     </li>
   );

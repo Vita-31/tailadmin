@@ -17,11 +17,11 @@ export const AccordionItem: FC<AccordionItemProps> = ({
   const contentEl = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div>
+    <>
       <div onClick={() => handleToggle()}>{header}</div>
       <div
         ref={contentEl}
-        className={classNames("duration-150", {
+        className={classNames("duration-150 overflow-hidden", {
           "opacity-100": active,
           "opacity-0": !active,
         })}
@@ -33,6 +33,6 @@ export const AccordionItem: FC<AccordionItemProps> = ({
       >
         {body}
       </div>
-    </div>
+    </>
   );
 };
