@@ -155,6 +155,7 @@ export const list = [
         icon: Envelope,
         title: "Messages",
         free: true,
+        count: 3,
         link: "/messages",
       },
       {

@@ -16,10 +16,13 @@ const config: Config = {
         secondary: "#10B981",
         dark: {
           DEFAULT: "#1C2434",
+          light: "#333A48",
+        },
+        silver: {
+          DEFAULT: "#E2E8F0",
           light: "#DEE4EE",
           darken: "#8A99AF",
         },
-        silver: "#E2E8F0",
       },
     },
   },

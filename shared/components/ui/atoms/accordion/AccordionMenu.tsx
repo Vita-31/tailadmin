@@ -21,7 +21,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
       <div onClick={() => handleToggle()}>{header}</div>
       <div
         ref={contentEl}
-        className={classNames("duration-150 overflow-hidden", {
+        className={classNames("duration-300 overflow-hidden", {
           "opacity-100": active,
           "opacity-0": !active,
         })}

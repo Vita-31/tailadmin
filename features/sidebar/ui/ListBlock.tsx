@@ -11,6 +11,7 @@ interface ListBlockProps {
     title: string;
     free: boolean;
     link: string | null;
+    count?: number;
     list?: {
       title: string;
       free: boolean;
@@ -22,7 +23,7 @@ interface ListBlockProps {
 export const ListBlock: FC<ListBlockProps> = ({ title, items }) => {
   return (
     <div className="flex flex-col gap-[15px]">
-      <div className="font-medium text-sm text-dark-darken uppercase pl-[15px]">
+      <div className="font-medium text-sm text-silver-darken uppercase pl-[15px]">
         {title}
       </div>
       <ul className="flex flex-col gap-[6px]">
@@ -34,6 +35,7 @@ export const ListBlock: FC<ListBlockProps> = ({ title, items }) => {
             free={menuItem.free}
             link={menuItem.link}
             list={menuItem?.list}
+            count={menuItem.count}
           />
         ))}
       </ul>

@@ -12,7 +12,7 @@ const list = [
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
-
+  console.log(activeIndex);
   return (
     <main>
       {list.map((item, index) => (
@@ -21,7 +21,7 @@ export default function Home() {
           handleToggle={() => setActiveIndex(index)}
           active={index === activeIndex}
           header={
-            <div className="flex items-center gap-[10px] py-2 pl-4 pr-3 text-dark-light font-medium text-base cursor-pointer duration-300">
+            <div className="flex items-center gap-[10px] py-2 pl-4 pr-3 text-silver-light font-medium text-base cursor-pointer duration-300">
               header
             </div>
           }

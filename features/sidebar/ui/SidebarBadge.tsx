@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 interface SidebarBadgeProp {
-  text: string;
+  text: string | number;
 }
 
 export const SidebarBadge: FC<SidebarBadgeProp> = ({ text }) => {
