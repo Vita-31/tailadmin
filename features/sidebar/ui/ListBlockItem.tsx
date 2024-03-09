@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC } from "react";
 import Link from "next/link";
 import { AccordionItem } from "@/ui";
 import { ListBlockItemHeader } from "./ListBlockItemHeader";
@@ -18,6 +18,8 @@ interface ListBlockItemProps {
     free: boolean;
     link: string;
   }[];
+  active: boolean;
+  handleToggle: () => void;
 }
 
 export const ListBlockItem: FC<ListBlockItemProps> = ({
@@ -27,22 +29,17 @@ export const ListBlockItem: FC<ListBlockItemProps> = ({
   free,
   link,
   count,
+  active,
+  handleToggle,
 }) => {
-  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
-
   const pathName = usePathname();
   const activeLink = pathName === link;
-
-  const handleToggle = () => {
-    setIsAccordionOpen(!isAccordionOpen);
-  };
-
   return (
     <li className="flex flex-col">
       {list && (
         <AccordionItem
-          handleToggle={handleToggle}
-          active={isAccordionOpen}
+          handleToggle={() => handleToggle()}
+          active={active}
           header={
             <ListBlockItemHeader
               icon={icon}
@@ -50,7 +47,7 @@ export const ListBlockItem: FC<ListBlockItemProps> = ({
               list={list}
               free={free}
               count={count}
-              active={isAccordionOpen}
+              active={active}
             />
           }
           body={<ListBlockItemBody list={list} />}
