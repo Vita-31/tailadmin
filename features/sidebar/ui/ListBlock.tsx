@@ -3,6 +3,7 @@
 import React, { FC, useEffect, useState } from "react";
 
 import { ListBlockItem } from "./ListBlockItem";
+import { usePathname } from "next/navigation";
 
 interface ListBlockProps {
   title: string;
@@ -22,21 +23,24 @@ interface ListBlockProps {
 
 export const ListBlock: FC<ListBlockProps> = ({ title, items }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [savedIndex, setSavedIndex] = useState<number | null>(null);
 
-  const handleToggle = (index: number) => {
-    const activeIndexStorage = sessionStorage.getItem("activeIndex");
-    const activeIndex =
-      activeIndexStorage !== null ? JSON.parse(activeIndexStorage) : null;
-    if (activeIndex) {
-      setActiveIndex(activeIndex);
-    } else {
-      setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-    }
-  };
+  const pathName = usePathname();
 
   useEffect(() => {
-    sessionStorage.setItem("activeIndex", JSON.stringify(activeIndex));
-  }, [activeIndex]);
+    const activeIndexStorage = sessionStorage.getItem("activeIndex");
+    const activeIndexSaved =
+      activeIndexStorage !== null ? JSON.parse(activeIndexStorage) : null;
+
+    if (pathName === "/") {
+      setSavedIndex(null);
+      sessionStorage.setItem("activeIndex", JSON.stringify(null));
+    }
+
+    if (activeIndexSaved !== null) {
+      setSavedIndex(activeIndexSaved);
+    }
+  }, []);
 
   return (
     <div className="flex flex-col gap-[15px]">
@@ -47,6 +51,7 @@ export const ListBlock: FC<ListBlockProps> = ({ title, items }) => {
         {items.map((menuItem, idx) => (
           <ListBlockItem
             key={idx}
+            index={idx}
             icon={menuItem.icon}
             title={menuItem.title}
             free={menuItem.free}
@@ -54,7 +59,10 @@ export const ListBlock: FC<ListBlockProps> = ({ title, items }) => {
             list={menuItem?.list}
             count={menuItem.count}
             active={activeIndex === idx}
-            handleToggle={() => handleToggle(idx)}
+            savedActive={savedIndex === idx}
+            handleToggle={() =>
+              setActiveIndex((prevIndex) => (prevIndex === idx ? null : idx))
+            }
           />
         ))}
       </ul>

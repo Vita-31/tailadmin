@@ -4,6 +4,7 @@ import { FC, useRef } from "react";
 interface AccordionItemProps {
   handleToggle: () => void;
   active?: boolean;
+  savedActive?: boolean;
   header: React.ReactNode;
   body: React.ReactNode;
 }
@@ -11,6 +12,7 @@ interface AccordionItemProps {
 export const AccordionItem: FC<AccordionItemProps> = ({
   handleToggle,
   active,
+  savedActive,
   header,
   body,
 }) => {
@@ -22,11 +24,11 @@ export const AccordionItem: FC<AccordionItemProps> = ({
       <div
         ref={contentEl}
         className={classNames("duration-300 overflow-hidden", {
-          "opacity-100": active,
-          "opacity-0": !active,
+          "opacity-100": active || savedActive,
+          "opacity-0": !active && !savedActive,
         })}
         style={
-          active && contentEl.current
+          (active || savedActive) && contentEl.current
             ? { height: contentEl.current.scrollHeight }
             : { height: "0" }
         }

@@ -19,7 +19,9 @@ interface ListBlockItemProps {
     link: string;
   }[];
   active: boolean;
+  savedActive: boolean;
   handleToggle: () => void;
+  index: number;
 }
 
 export const ListBlockItem: FC<ListBlockItemProps> = ({
@@ -31,15 +33,19 @@ export const ListBlockItem: FC<ListBlockItemProps> = ({
   count,
   active,
   handleToggle,
+  index,
+  savedActive,
 }) => {
   const pathName = usePathname();
   const activeLink = pathName === link;
+
   return (
     <li className="flex flex-col">
       {list && (
         <AccordionItem
           handleToggle={() => handleToggle()}
           active={active}
+          savedActive={savedActive}
           header={
             <ListBlockItemHeader
               icon={icon}
@@ -48,9 +54,10 @@ export const ListBlockItem: FC<ListBlockItemProps> = ({
               free={free}
               count={count}
               active={active}
+              savedActive={savedActive}
             />
           }
-          body={<ListBlockItemBody list={list} />}
+          body={<ListBlockItemBody list={list} parentIndex={index} />}
         />
       )}
       {link && (

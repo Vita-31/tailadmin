@@ -1,7 +1,7 @@
 import React, { FC } from "react";
+import classNames from "classnames";
 import { ChevronUp } from "@/shared/icons/ChevronUp";
 import { SidebarBadge } from "./SidebarBadge";
-import classNames from "classnames";
 
 interface ListBlockItemHeaderProp {
   icon: Function;
@@ -15,6 +15,7 @@ interface ListBlockItemHeaderProp {
     link: string;
   }[];
   active?: boolean;
+  savedActive?: boolean;
 }
 
 export const ListBlockItemHeader: FC<ListBlockItemHeaderProp> = ({
@@ -25,24 +26,33 @@ export const ListBlockItemHeader: FC<ListBlockItemHeaderProp> = ({
   active,
   count,
   activeLink,
+  savedActive,
 }) => {
+  const setActiveList = () => {
+    if (!list) {
+      sessionStorage.setItem("activeIndex", JSON.stringify(null));
+    }
+  };
   return (
     <span
       className={classNames(
         "flex items-center gap-[10px] py-2 pl-4 pr-3 text-silver-light font-medium text-base cursor-pointer duration-300 hover:text-silver-darken",
         {
-          "bg-dark-light rounded hover:text-silver-light": active || activeLink,
+          "bg-dark-light rounded hover:text-silver-light":
+            active || activeLink || savedActive,
         }
       )}
+      onClick={() => setActiveList()}
     >
       <span className="w-[18px] h-[18px] shrink-0">{icon()}</span>
       {title}
       {list && (
         <span
           className={classNames(
-            "w-[18px] h-[18px] shrink-0 ml-auto rotate-180 duration-300",
+            "w-[18px] h-[18px] shrink-0 ml-auto duration-300",
             {
-              "rotate-0": active,
+              "rotate-0": active || savedActive,
+              "rotate-180": !active && !savedActive,
             }
           )}
         >

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import Link from "next/link";
 import { SidebarBadge } from "./SidebarBadge";
 import { usePathname } from "next/navigation";
@@ -10,10 +10,26 @@ interface ListBlockItemBodyProp {
     free: boolean;
     link: string;
   }[];
+  parentIndex: number;
 }
 
-export const ListBlockItemBody: FC<ListBlockItemBodyProp> = ({ list }) => {
+export const ListBlockItemBody: FC<ListBlockItemBodyProp> = ({
+  list,
+  parentIndex,
+}) => {
   const pathName = usePathname();
+
+  useEffect(() => {
+    list?.forEach((item) => {
+      if (item.link === pathName) {
+        sessionStorage.setItem("activeIndex", JSON.stringify(parentIndex));
+      }
+    });
+  }, [list, pathName, parentIndex]);
+
+  const setActiveList = (index: number) => {
+    sessionStorage.setItem("activeIndex", JSON.stringify(index));
+  };
 
   return (
     <ul className="flex flex-col gap-2 pl-11">
@@ -27,6 +43,7 @@ export const ListBlockItemBody: FC<ListBlockItemBodyProp> = ({ list }) => {
                 "text-white": pathName === item.link,
               }
             )}
+            onClick={() => setActiveList(parentIndex)}
           >
             {item.title}
 
