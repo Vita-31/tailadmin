@@ -3,15 +3,16 @@ import { FC } from "react";
 
 export const Search: FC = () => {
   return (
-    <div className="flex items-center">
+    <label className="flex items-center h-5">
       <span className="w-5 h-5 flex">
         <SearchIcon />
       </span>
       <input
         type="search"
-        className="text-sm font-medium flex ml-5"
+        name="search"
+        className="text-sm font-medium flex ml-5 focus:outline-none placeholder:text-silver-dark placeholder:text-sm"
         placeholder="Type to search..."
       />
-    </div>
+    </label>
   );
 };

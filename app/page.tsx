@@ -12,7 +12,7 @@ const list = [
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
-  console.log(activeIndex);
+
   return (
     <main>
       {list.map((item, index) => (

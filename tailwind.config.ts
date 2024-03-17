@@ -21,6 +21,7 @@ const config: Config = {
         silver: {
           DEFAULT: "#E2E8F0",
           light: "#DEE4EE",
+          dark: "#637381",
           darken: "#8A99AF",
         },
       },
