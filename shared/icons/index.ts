@@ -13,3 +13,6 @@ export * from "./Table";
 export * from "./User";
 export * from "./Sun";
 export * from "./Moon";
+export * from "./Bell";
+export * from "./Message";
+export * from "./SearchIcon";
