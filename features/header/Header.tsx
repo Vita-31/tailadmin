@@ -6,6 +6,7 @@ import { Switcher } from "@/ui";
 import { ButtonIcon } from "@/shared/components/ui/atoms/buttonIcon/ButtonIcon";
 import { Bell } from "@/icons";
 import { Message } from "@/icons";
+import { HeaderNotification } from "./ui/HeaderNotification";
 
 export const Header: FC = () => {
   return (
@@ -15,9 +16,12 @@ export const Header: FC = () => {
       <div className="flex items-center gap-7">
         <Switcher />
         <div className="flex gap-4 items-center">
-          <ButtonIcon>
-            <Bell />
-          </ButtonIcon>
+          <div className="relative">
+            <ButtonIcon>
+              <Bell />
+            </ButtonIcon>
+            <HeaderNotification />
+          </div>
 
           <ButtonIcon>
             <Message />
