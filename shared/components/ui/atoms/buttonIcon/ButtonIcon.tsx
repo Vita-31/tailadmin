@@ -6,7 +6,7 @@ interface ButtonIconProps {
 
 export const ButtonIcon: FC<ButtonIconProps> = ({ children }) => {
   return (
-    <button className="w-8 h-8 rounded-full border border-silver bg-gray flex items-center justify-center">
+    <button className="w-9 h-9 rounded-full border border-silver bg-gray flex items-center justify-center">
       {children}
     </button>
   );

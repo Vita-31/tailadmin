@@ -1,10 +1,11 @@
 "use client";
 
 import { FC } from "react";
-import { Search } from "./ui/HeaderSearch";
 import { ButtonIcon, Switcher } from "@/ui";
 import { Message } from "@/icons";
+import { Search } from "./ui/HeaderSearch";
 import { HeaderNotification } from "./ui/HeaderNotification";
+import { HeaderProfile } from "./ui/HeaderProfile";
 
 export const Header: FC = () => {
   return (
@@ -24,6 +25,8 @@ export const Header: FC = () => {
             </ButtonIcon>
           </div>
         </div>
+
+        <HeaderProfile />
       </div>
     </header>
   );

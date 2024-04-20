@@ -16,3 +16,4 @@ export * from "./Moon";
 export * from "./Bell";
 export * from "./Message";
 export * from "./SearchIcon";
+export * from "./ChevronDown";

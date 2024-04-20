@@ -1,8 +1,7 @@
 export const notifications = [
   {
     title: "Edit your information in a swipe",
-    text:
-      "Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+    text: "Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
     date: "2025-05-12",
   },
   {
@@ -12,16 +11,14 @@ export const notifications = [
   },
   {
     title: "There are many variations",
-    text:
-      "of passages of Lorem Ipsum available, but the majority have suffered.",
+    text: "of passages of Lorem Ipsum available, but the majority have suffered.",
     date: "2025-06-4",
   },
   {
     title: "Edit your information in a swipe",
-    text:
-      "Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+    text: "Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
     date: "2025-05-12",
   },
 ];
 
-export type notifications = typeof notifications[0];
+export type notifications = (typeof notifications)[0];
