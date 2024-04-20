@@ -10,18 +10,9 @@ export const HeaderNotification: FC<HeaderNotificationProps> = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (target: EventTarget | null) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(target as Node)
-      ) {
-        setActive(false);
-      }
-    };
-
-    document.body.addEventListener("click", ({ target }) =>
-      handleClickOutside(target)
-    );
+    document.body.addEventListener("click", ({ target }) => {
+      handleClickOutside(target);
+    });
 
     return () => {
       document.body.removeEventListener("click", ({ target }) =>
@@ -30,11 +21,20 @@ export const HeaderNotification: FC<HeaderNotificationProps> = () => {
     };
   }, []);
 
-  const handleToggle = () => {
-    setActive(!active);
+  const handleClickOutside = (target: EventTarget | null) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(target as Node)) {
+      setActive(false);
+    }
   };
+
+  const handleToggle = () => {
+    setActive((active) => {
+      return !active;
+    });
+  };
+
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <AccordionItem
         handleToggle={() => handleToggle()}
         active={active}
@@ -43,7 +43,7 @@ export const HeaderNotification: FC<HeaderNotificationProps> = () => {
             <Bell />
           </ButtonIcon>
         }
-        body={<HeaderNotificationDropdown dropdownRef={dropdownRef} />}
+        body={<HeaderNotificationDropdown />}
       />
     </div>
   );

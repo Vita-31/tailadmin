@@ -28,6 +28,9 @@ const config: Config = {
           DEFAULT: "#EFF4FB",
           dark: "#64748B",
         },
+        red: {
+          DEFAULT: "#DC3545",
+        },
       },
     },
   },

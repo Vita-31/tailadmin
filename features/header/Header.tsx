@@ -17,9 +17,12 @@ export const Header: FC = () => {
         <div className="flex gap-4 items-center">
           <HeaderNotification />
 
-          <ButtonIcon>
-            <Message />
-          </ButtonIcon>
+          <div className="relative">
+            <ButtonIcon>
+              <span className="absolute w-3 h-3 rounded-full border-2 border-white bg-red top-0 right-0"></span>
+              <Message />
+            </ButtonIcon>
+          </div>
         </div>
       </div>
     </header>

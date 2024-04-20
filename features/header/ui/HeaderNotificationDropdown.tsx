@@ -1,14 +1,12 @@
-import { FC, RefObject } from "react";
+import { FC } from "react";
 import { notifications } from "../lib/constants";
 import Link from "next/link";
 
-interface HeaderNotificationDropdownProps {
-  dropdownRef: RefObject<HTMLDivElement> | undefined;
-}
+interface HeaderNotificationDropdownProps {}
 
-export const HeaderNotificationDropdown: FC<HeaderNotificationDropdownProps> = ({
-  dropdownRef,
-}) => {
+export const HeaderNotificationDropdown: FC<
+  HeaderNotificationDropdownProps
+> = () => {
   function formatDate(date: string) {
     const parts = date.split("-");
     const year = parseInt(parts[0]);
@@ -42,23 +40,22 @@ export const HeaderNotificationDropdown: FC<HeaderNotificationDropdownProps> = (
     return formattedDate;
   }
   return (
-    <div
-      className="absolute right-0 top-11 border border-silver bg-white w-80 max-h-96 overflow-y-auto shadow-[0_8px_13px_-3px_rgba(0,0,0,0.07)]"
-      ref={dropdownRef}
-    >
+    <div className="absolute right-0 top-11 border border-silver bg-white w-80 max-h-96 overflow-y-auto shadow-[0_8px_13px_-3px_rgba(0,0,0,0.07)]">
       <div className="py-3 px-5 text-sm text-silver-darken">Notification</div>
       <div>
         {notifications.map((notification, idx) => (
           <Link
             href="/"
             key={idx}
-            className="py-3 px-5 border-b border-silver first:border-t even:bg-gray/40"
+            className="py-3 px-5 border-b border-silver first:border-t even:bg-gray/40 block"
           >
-            <div className="text-sm text-dark">{notification.title}</div>
-            <div className="text-sm text-silver-dark">{notification.text}</div>
-            <div className="text-xs text-gray-dark mt-3">
+            <span className="text-sm text-dark">{notification.title}</span>
+            <span className="text-sm text-silver-dark">
+              {notification.text}
+            </span>
+            <span className="text-xs text-gray-dark mt-3">
               {formatDate(notification.date)}
-            </div>
+            </span>
           </Link>
         ))}
       </div>
