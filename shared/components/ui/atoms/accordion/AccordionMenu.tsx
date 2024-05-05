@@ -24,8 +24,8 @@ export const AccordionItem: FC<AccordionItemProps> = ({
       <div
         ref={contentEl}
         className={classNames("duration-300 overflow-hidden", {
-          "opacity-100": active || savedActive,
-          "opacity-0": !active && !savedActive,
+          "opacity-100 pointer-events-auto": active || savedActive,
+          "opacity-0 pointer-events-none": !active && !savedActive,
         })}
         style={
           (active || savedActive) && contentEl.current

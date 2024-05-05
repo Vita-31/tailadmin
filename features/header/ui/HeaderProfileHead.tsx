@@ -11,10 +11,14 @@ export const HeaderProfileHead: FC<HeaderProfileHeadProps> = ({ active }) => {
   return (
     <button className="flex items-center" type="button">
       <div>
-        <div className="font-medium text-sm">Thomas Anree</div>
-        <div className="font-medium text-xs text-silver-dark">Ux Designer</div>
+        <div className="font-medium text-sm whitespace-nowrap">
+          Thomas Anree
+        </div>
+        <div className="font-medium text-xs text-silver-dark whitespace-nowrap">
+          Ux Designer
+        </div>
       </div>
-      <div className="w-12 h-12 rounded-full overflow-hidden ml-4">
+      <div className="w-9 h-9 lg:w-12 lg:h-12 rounded-full overflow-hidden ml-2 lg:ml-4">
         <Image
           src="/images/avatar.png"
           className="w-full h-full object-cover"
@@ -26,7 +30,7 @@ export const HeaderProfileHead: FC<HeaderProfileHeadProps> = ({ active }) => {
         />
       </div>
       <div
-        className={classNames("ml-3 rotate-0 duration-500", {
+        className={classNames("ml-2 lg:ml-3 rotate-0 duration-500", {
           "rotate-180": active,
         })}
       >

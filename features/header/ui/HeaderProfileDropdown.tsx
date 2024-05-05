@@ -3,7 +3,7 @@ import React from "react";
 
 export const HeaderProfileDropdown = () => {
   return (
-    <ul className="absolute right-0 top-14 border border-silver bg-white w-56 max-h-96 overflow-y-auto shadow-[0_8px_13px_-3px_rgba(0,0,0,0.07)]">
+    <ul className="absolute right-0 top-11 lg:top-14 border border-silver bg-white w-56 max-h-96 overflow-y-auto shadow-[0_8px_13px_-3px_rgba(0,0,0,0.07)]">
       <li className="flex">
         <Link
           href="/profile"
