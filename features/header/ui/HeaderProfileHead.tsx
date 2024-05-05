@@ -1,10 +1,13 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { ChevronDown } from "@/icons";
+import classNames from "classnames";
 
-interface HeaderProfileHeadProps {}
+interface HeaderProfileHeadProps {
+  active: boolean;
+}
 
-export const HeaderProfileHead: FC<HeaderProfileHeadProps> = () => {
+export const HeaderProfileHead: FC<HeaderProfileHeadProps> = ({ active }) => {
   return (
     <button className="flex items-center" type="button">
       <div>
@@ -22,7 +25,11 @@ export const HeaderProfileHead: FC<HeaderProfileHeadProps> = () => {
           decoding="async"
         />
       </div>
-      <div className="ml-3">
+      <div
+        className={classNames("ml-3 rotate-0 duration-500", {
+          "rotate-180": active,
+        })}
+      >
         <ChevronDown color="#637381" />
       </div>
     </button>
